@@ -1,0 +1,17 @@
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^clubdelcomerciobogota\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.clubdelcomerciobogota\.com$
+RewriteRule ^/?$ "https\:\/\/clubdelcomerciobogota\.com\/" [R=301,L]
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+#RewriteRule ^([a-z]+)/?$ $1.html [NC]
+
+</IfModule>
